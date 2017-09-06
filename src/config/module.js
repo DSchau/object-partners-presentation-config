@@ -41,6 +41,27 @@ module.exports = function module(
         ]
       },
       {
+        test: /\.js$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  'env',
+                  {
+                    modules: false
+                  }
+                ],
+                'stage-0',
+                'react'
+              ],
+              plugins: ['transform-runtime']
+            }
+          }
+        ]
+      },
+      {
         test: /reveal\.js\/plugin\/.*\.(js|html)$/,
         use: [
           {
